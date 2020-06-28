@@ -1,0 +1,24 @@
+{
+  "name": "image-begone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^1.12.4",
+    "parcel-plugin-web-extension": "^1.6.1",
+    "typescript": "^3.9.5",
+    "web-ext": "^4.3.0"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^5.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.1.1"
+  },
+  "scripts": {
+    "start": "parcel src/manifest.json src/entry/extension.html"
+  }
+}
