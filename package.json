@@ -22,6 +22,6 @@
     "webextension-polyfill": "^0.6.0"
   },
   "scripts": {
-    "start": "parcel src/manifest.json src/entry/extension.html"
+    "start": "parcel src/manifest.json"
   }
 }
