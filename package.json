@@ -10,13 +10,16 @@
     "web-ext": "^4.3.0"
   },
   "dependencies": {
+    "@tensorflow/tfjs": "^2.0.1",
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
     "@types/styled-components": "^5.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "web-ext-types": "^3.2.1",
+    "webextension-polyfill": "^0.6.0"
   },
   "scripts": {
     "start": "parcel src/manifest.json src/entry/extension.html"

@@ -3,13 +3,16 @@
   "version": "2.0.1",
   "description": "Fav Bookmark Manager",
   "manifest_version": 2,
-  "icons": {
-  },
+  "icons": {},
   "browser_action": {
-    "default_icon": {
-    },
+    "default_icon": {},
     "default_title": "Fav",
     "default_popup": "entry/extension.html"
+  },
+  "background": {
+    "scripts": [
+      "entry/background-script.ts"
+    ]
   },
   "permissions": [
     "tabs",
