@@ -26,7 +26,7 @@
     "webextension-polyfill": "^0.6.0"
   },
   "scripts": {
-    "start": "parcel src/manifest.json"
+    "start": "parcel src/manifest.json --no-hmr"
   },
   "browserslist": [
     "last 1 Chrome version",
