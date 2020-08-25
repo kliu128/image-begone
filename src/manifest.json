@@ -9,6 +9,11 @@
     "default_title": "Image Begone",
     "default_popup": "popup/index.html"
   },
+  "background": {
+    "scripts": [
+      "./background/index.ts"
+    ]
+  },
   "content_scripts": [
     {
       "matches": [
@@ -17,9 +22,11 @@
       "js": [
         "./content-script/index.ts"
       ],
-      "run_at": "document_end"
+      "run_at": "document_idle"
     }
   ],
-  "permissions": [],
+  "permissions": [
+    "<all_urls>"
+  ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
 }
