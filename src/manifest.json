@@ -17,12 +17,12 @@
   "content_scripts": [
     {
       "matches": [
-        "*://duckduckgo.com/*"
+        "*://*/*"
       ],
       "js": [
         "./content-script/index.ts"
       ],
-      "run_at": "document_idle"
+      "run_at": "document_complete"
     }
   ],
   "permissions": [

@@ -17,6 +17,26 @@ function getPageImages() {
 
 const images = getPageImages();
 console.log("Processing", images);
+
+browser.runtime.onMessage.addListener(
+  (
+    message: { src: string; err: Error } | { src: string; spiderPct: number }
+  ) => {
+    if ("err" in message) {
+      console.error(message.err);
+    } else {
+      const { src, spiderPct } = message;
+      console.log(src, ":", spiderPct);
+
+      if (spiderPct > 50) {
+        (document.querySelector(
+          "img[src=" + src + "]"
+        ) as HTMLImageElement).hidden = true;
+      }
+    }
+  }
+);
+
 for (const image of images) {
   browser.runtime.sendMessage({ src: image.originalSrc });
 }
