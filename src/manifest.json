@@ -22,7 +22,7 @@
       "js": [
         "./content-script/index.ts"
       ],
-      "run_at": "document_complete"
+      "run_at": "document_end"
     }
   ],
   "permissions": [
