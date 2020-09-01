@@ -18,8 +18,6 @@ function loadImage(src: string): Promise<HTMLImageElement> {
   return new Promise((res, rej) => {
     const img = new Image();
     img.src = src;
-    img.width = 160;
-    img.height = 160;
     img.crossOrigin = "anonymous";
     img.onerror = rej;
     img.onload = () => res(img);
@@ -37,12 +35,16 @@ browser.runtime.onMessage.addListener(
     console.log("Loading", src);
     try {
       const img = await loadImage(src);
-      const pixelTensor = tf.browser.fromPixels(img);
       // The first dimension is the batch size (I think?) and since we're only
       // processing one image at a time for now, just do this.
       // TODO: Wait, can you parallelize this??
-      const t = pixelTensor.reshape([1, 160, 160, 3]).div(255);
-      const prediction = model.predict(t, {
+      // Resize to correct size and reshape to what the model expects
+      const pixelTensor = tf.browser
+        .fromPixels(img)
+        .resizeBilinear([160, 160])
+        .reshape([1, 160, 160, 3])
+        .div(255);
+      const prediction = model.predict(pixelTensor, {
         batchSize: 1,
         verbose: true,
       }) as tf.Tensor<tf.Rank>;
